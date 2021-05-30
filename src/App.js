@@ -36,11 +36,12 @@ function App() {
   useEffect(()=>{
     fetch(api).then((resp)=>{
       resp.json().then((result)=>{
-                    result.map((event)=>{
+                    result.forEach((event)=>{
+                      
                     const bidsArray=[];
-                    event.bids.map((e)=>{
+                    event.bids.forEach((e)=>{
                         bidsArray.push(e.amount);
-                        return "" ;
+                        
                     })
                     bidsArray.sort();
                     const minBid=bidsArray[0];
@@ -48,7 +49,7 @@ function App() {
                     const maxBid=bidsArray[length-1];
                     event.MinBid=minBid;
                     event.MaxBid=maxBid;
-                    return "";
+                    
                 })
        
          result.sort(dynamicsort("MaxBid",sortV))
