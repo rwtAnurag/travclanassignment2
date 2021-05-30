@@ -7,7 +7,7 @@ export const UserContext = React.createContext();
 function App() {
 
   const [page,setPage] = useState(1);
-  const [userData,setUserData] = useState([]);
+ 
   const [newUser,setNewUser] = useState([]);
   const [sortV,setSortV] =useState("desc");
   const api = `https://intense-tor-76305.herokuapp.com/merchants?_page=${page}&_limit=${4}`;
@@ -27,13 +27,20 @@ function App() {
         }
     }
 }
-  const loaddata=()=>{
+  // const loaddata=()=>{
+   
+  // }
+  // const changeUser=()=>{
+  //   console.log("call",userData);
+  // }
+  useEffect(()=>{
     fetch(api).then((resp)=>{
       resp.json().then((result)=>{
                     result.map((event)=>{
                     const bidsArray=[];
                     event.bids.map((e)=>{
                         bidsArray.push(e.amount);
+                        return ;
                     })
                     bidsArray.sort();
                     const minBid=bidsArray[0];
@@ -41,19 +48,13 @@ function App() {
                     const maxBid=bidsArray[length-1];
                     event.MinBid=minBid;
                     event.MaxBid=maxBid;
+                    return;
                 })
-        console.log(result);
+       
          result.sort(dynamicsort("MaxBid",sortV))
          setNewUser(result);
       })
      })
-  }
-  const changeUser=()=>{
-    console.log("call",userData);
-  }
-  useEffect(()=>{
-        loaddata();
-        
   },[page,sortV]);
   return (
     <div className="App">

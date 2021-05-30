@@ -30,7 +30,7 @@ const UserList = ()=>{
   
                             <div className="d-flex userDetail" key={e.id}>
                                 <div style={{width:"20%"}}>
-                                    <img  className="user_img" src={e.avatarUrl}></img>
+                                    <img  alt="sorry " className="user_img" src={e.avatarUrl}></img>
                                 </div>
                                 <div  style={{width:"60%"}}>
                                     
