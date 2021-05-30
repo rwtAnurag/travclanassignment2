@@ -1,0 +1,24 @@
+.userList{
+    
+    padding: 4%;
+    padding-bottom: 0;;
+    /* color: white; */
+  
+}
+.userDetail{
+    padding-bottom: 2%;;
+    /* height: 10rem; */
+}
+.user_img{
+    height: 7vw;
+    margin: 0 20px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0.5);
+}
+button {
+    border:none;
+}
+.pagination{
+    
+    display: flex;
+    justify-content: center;
+}
