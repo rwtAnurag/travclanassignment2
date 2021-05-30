@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./UserList.css"
 import Pagination from "@material-ui/lab/Pagination" ;
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {UserContext} from "../App.js"
 const UserList = ()=>{
     const [min,setMin]=useState(false);
+    const [minormax,setMinMax]=useState("MinimumBid");
     // const displayMaxibid=(bids)=>{
     //      const bidsArray=[];
     //      bids.map((e)=>{
@@ -15,6 +16,14 @@ const UserList = ()=>{
     //     const length=bidsArray.length;
     //     return <h1>bidsArray[length-1]</h1>;
     // }
+    useEffect(()=>{
+       if(minormax==="MinimumBid") {
+           setMinMax("MaximumBid");
+       }
+       else{
+           setMinMax("MinimumBid");
+       }
+    },[min])
     
     return (
         <div className="App">
@@ -43,7 +52,7 @@ const UserList = ()=>{
                                 <div style={{width:"20%"}}>
                                 
                                     {min===false? <h6>{e.MaxBid}</h6>:<h5>{e.MinBid}</h5>}
-                                    <button onClick={()=>{min===false?setMin(true):setMin(false)}}>Maximum Bid</button> 
+                                    <button style={{border:"5px solid white",backgroundColor:"skyblue"}} onClick={()=>{min===false?setMin(true):setMin(false)}}>{minormax}</button> 
                                 </div>
                             </div>
                             </>
