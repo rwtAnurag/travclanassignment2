@@ -51,7 +51,6 @@ function App() {
                     event.MaxBid=maxBid;
                     
                 })
-       
          result.sort(dynamicsort("MaxBid",sortV))
          setNewUser(result);
       })

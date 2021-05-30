@@ -43,7 +43,7 @@ const UserList = ()=>{
                                 <div style={{width:"20%"}}>
                                 
                                     {min===false? <h6>{e.MaxBid}</h6>:<h5>{e.MinBid}</h5>}
-                                    <button onClick={()=>setMin(true)}> Maximum Bid</button> 
+                                    <button onClick={()=>{min===false?setMin(true):setMin(false)}}>Maximum Bid</button> 
                                 </div>
                             </div>
                             </>
