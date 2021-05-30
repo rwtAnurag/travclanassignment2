@@ -40,7 +40,7 @@ function App() {
                     const bidsArray=[];
                     event.bids.map((e)=>{
                         bidsArray.push(e.amount);
-                        return ;
+                        return "" ;
                     })
                     bidsArray.sort();
                     const minBid=bidsArray[0];
@@ -48,7 +48,7 @@ function App() {
                     const maxBid=bidsArray[length-1];
                     event.MinBid=minBid;
                     event.MaxBid=maxBid;
-                    return;
+                    return "";
                 })
        
          result.sort(dynamicsort("MaxBid",sortV))
